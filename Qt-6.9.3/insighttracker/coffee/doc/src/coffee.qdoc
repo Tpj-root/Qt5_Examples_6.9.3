@@ -1,0 +1,57 @@
+// Copyright (C) 2017 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
+
+/*!
+
+    \example coffee
+    \title Qt Insight - Qt Quick Application
+    \ingroup insighttracker-examples
+    \brief A Qt Quick application using Qt Insight Tracker.
+    \meta {tag} {demo,quick,embedded,insight}
+
+    \borderedimage coffee_machine_overview.png
+
+    \include examples-run.qdocinc
+
+    The example shows how to integrate Qt Insight Tracker to your Qt Quick
+    application.
+
+    In the example, InsighTracker singleton is configured and then enabled.
+
+    \snippet coffee/main.qml configuration
+
+    The example is using states to control the UI layouts. Qt Insight can be
+    then easily used to track the transitions in the UI flow either from QML:
+
+    \snippet coffee/ApplicationFlow.qml transition
+
+    or from C++:
+
+    \snippet coffee/main.cpp transition
+
+    Button presses can also be tracked.
+
+    \snippet coffee/ChoosingCoffee.qml interaction
+
+    The example also sends the current color theme as additional context data
+    in the interaction event.
+
+    \snippet coffee/ApplicationFlow.qml interaction
+
+    The example sends custom dimension \c CoffeeType that can be
+    used in the Insight Console to filter sessions that selected specific
+    coffee variety. Additional context data is also sent as a key/value pair.
+
+    \snippet coffee/ApplicationFlow.qml dimension
+
+    An attached property InsightCategory can be used in the QML components.
+    It can be used to filter the tracked events.
+
+    \snippet coffee/ChoosingCoffeeForm.ui.qml category
+
+    Tracked events are always associated with a session, which is always new
+    for each application launch. A new session can also be created if needed.
+    In the example, this is done when the UI is reset back to the initial state.
+
+    \snippet coffee/ApplicationFlow.qml new session
+*/
